@@ -14,8 +14,11 @@
 #include <signal.h>
 #include <pthread.h>
 
+#define SUPPORT_ROTATION 1
+
 #ifdef SUPPORT_ROTATION
 #include <libyuv.h>
+#include <libyuv/rotate.h>
 #endif
 
 // Why is this not in v4l2loopback.h??? Come on...
@@ -34,7 +37,6 @@ struct v4l2_event_client_usage {
 #define CAMERA_WIDTH     1280
 #define CAMERA_HEIGHT    720
 #define MAX_CAMERAS      8
-#define SUPPORT_ROTATION 1
 
 typedef struct camera_config {
     DroidMediaCamera *camera;
