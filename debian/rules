@@ -1,0 +1,7 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --without=makefile
+
+override_dh_auto_build:
+	gcc -o droidcam2v4l2 src/droidcam2v4l2.c -ldroidmedia -lyuv
