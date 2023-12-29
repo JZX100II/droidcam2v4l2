@@ -1,0 +1,14 @@
+[Unit]
+Description=droidmedia to v4l2
+After=lxc@android.service
+ConditionPathExists=/dev/v4l2loopback
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=5s
+ExecStartPre=/bin/sh -c '/bin/test -e /system/bin/miniafservice && /usr/bin/waitforservice init.svc.miniaf || true'
+ExecStart=/usr/bin/droidcam2v4l2
+
+[Install]
+WantedBy=multi-user.target

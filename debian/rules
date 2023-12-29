@@ -5,3 +5,6 @@
 
 override_dh_auto_build:
 	gcc -o droidcam2v4l2 src/droidcam2v4l2.c -ldroidmedia -lyuv
+
+override_dh_installsystemd:
+	dh_installsystemd -pdroidcam2v4l2 --name=droidcam2v4l2 droidcam2v4l2.service
