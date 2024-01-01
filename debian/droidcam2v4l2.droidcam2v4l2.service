@@ -7,7 +7,7 @@ ConditionPathExists=/dev/v4l2loopback
 Type=simple
 Restart=on-failure
 RestartSec=5s
-ExecStartPre=/bin/sh -c '/bin/test -e /system/bin/miniafservice && /usr/bin/waitforservice init.svc.miniaf || true'
+ExecStartPre=/usr/bin/waitforservice init.svc.*camera*
 ExecStart=/usr/bin/droidcam2v4l2
 
 [Install]
