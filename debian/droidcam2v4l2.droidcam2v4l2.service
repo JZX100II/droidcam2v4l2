@@ -8,6 +8,7 @@ Type=simple
 Restart=on-failure
 RestartSec=5s
 ExecStartPre=/usr/bin/waitforservice init.svc.*camera*
+ExecStartPre=/usr/bin/mount --bind /dev/null /usr/lib/aarch64-linux-gnu/qt5/plugins/mediaservice/libgstcamerabin.so
 ExecStart=/usr/bin/droidcam2v4l2
 
 [Install]
